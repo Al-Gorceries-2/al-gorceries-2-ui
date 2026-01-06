@@ -1,0 +1,36 @@
+name: Build & Push UI Image
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Container image
+        run: |
+          docker build \
+            -t ghcr.io/al-gorceries-2/al-gorceries-2-ui:${{ github.sha }} \
+            -t ghcr.io/al-gorceries-2/al-gorceries-2-ui:latest \
+            .
+
+      - name: Push Container image
+        run: |
+          docker push ghcr.io/al-gorceries-2/al-gorceries-2-ui:${{ github.sha }}
+          docker push ghcr.io/al-gorceries-2/al-gorceries-2-ui:latest
