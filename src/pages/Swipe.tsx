@@ -22,7 +22,7 @@ export const Swipe = () => {
     const [recipesToSwipe, setRecipesToSwipe] = useState<RecipeViewDto[]>([]);
 
     const [recipeListName, setRecipeListName] = useState("");
-    const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
+    const [debounceTimer, setDebounceTimer] = useState<number | null>(null);
 
     const [recipeLists, setRecipeLists] = useState<RecipeListViewDto[]>([]);
     const [recipeList, setRecipeList] = useState<RecipeListViewDto | null>(null);
@@ -269,7 +269,7 @@ interface RecipeListSelectionProps {
 
 const RecipeListSelection = ({ setRecipeList, recipeLists, user, colorScheme }: RecipeListSelectionProps) => {
 
-    const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
+    const [debounceTimer, setDebounceTimer] = useState<number | null>(null);
 
     const [newRecipeListName, setNewRecipeListName] = useState("");
 
