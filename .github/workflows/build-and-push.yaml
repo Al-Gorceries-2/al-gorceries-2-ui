@@ -26,7 +26,7 @@ jobs:
       - name: Build Container image
         run: |
           docker build \
-            --build-arg VITE_AL_GORCERIES_2_API_URL=${{ vars.API_URL }}
+            --build-arg VITE_AL_GORCERIES_2_API_URL=${{ vars.API_URL }} \
             -f Containerfile \
             -t ghcr.io/al-gorceries-2/al-gorceries-2-ui:${{ github.sha }} \
             -t ghcr.io/al-gorceries-2/al-gorceries-2-ui:latest \
