@@ -1,4 +1,4 @@
-name: Build & Push UI Image
+name: Deploy
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   packages: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,3 +36,16 @@ jobs:
         run: |
           docker push ghcr.io/al-gorceries-2/al-gorceries-2-ui:${{ github.sha }}
           docker push ghcr.io/al-gorceries-2/al-gorceries-2-ui:latest
+
+      - name: Set up kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
+          chmod 600 ~/.kube/config
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+
+      - name: Deploy Helm Chart
+        run: |
+          helm upgrade --install al-gorceries-2-ui al-gorceries-2-ui-chart --set image.tag=${{ github.sha }} --wait
