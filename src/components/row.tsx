@@ -27,7 +27,7 @@ export default function ExpandableRecipeRow({ recipe, onDelete, colorScheme }: R
                 {
                     showDeleteWarning ?
                         <>
-                            <button title="Cancel" onClick={() => setShowDeleteWarning(false)} className="text-slate-600 hover:text-slate-500 transition-all duration-200 text-md"><FaBan /></button>
+                            <button title="Cancel" onClick={() => setShowDeleteWarning(false)} className={`text-${colorScheme}-600 hover:text-${colorScheme}-500 transition-all duration-200 text-md`}><FaBan /></button>
                             <button title="Really Delete" onClick={() => onDelete(recipe.id)} className="text-red-600 hover:text-red-500 transition-all duration-200 text-md"><FaTrash /></button>
                         </> :
                         <>

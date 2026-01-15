@@ -7,9 +7,8 @@ import { useColorScheme } from "./service/useColorScheme";
 export const App = () => {
     const { colorScheme } = useColorScheme();
 
-    const handleSocialLogin = (provider: "Google" | "Apple") => {
-        // Redirect to backend OAuth2 endpoint
-        window.location.href = `${BASE_URL}/oauth2/authorization/${provider.toLowerCase()}`;
+    const handleSocialLogin = (provider: "google" | "apple") => {
+        window.location.href = `${BASE_URL}/oauth2/authorization/${provider}`;
     };
 
     return (
@@ -20,7 +19,8 @@ export const App = () => {
                 <h1 className="text-2xl font-bold text-neutral-300 flex-shrink-0">Login / Register</h1>
 
                 <button
-                    onClick={() => handleSocialLogin("Google")}
+                    onClick={() => handleSocialLogin("google")}
+                    title="Login / Register via Google"
                     className={`w-full max-w-xs px-5 py-2 bg-${colorScheme}-600 text-neutral-300 rounded-md hover:bg-${colorScheme}-500 transition-all duration-200 flex items-center justify-center space-x-2`}
                 >
                     <span>via Google</span>
@@ -34,11 +34,13 @@ export const App = () => {
                 </div>
 
                 <button
-                    onClick={() => handleSocialLogin("Apple")}
-                    className={`w-full max-w-xs px-5 py-2 bg-${colorScheme}-600 text-neutral-300 rounded-md hover:bg-${colorScheme}-500 transition-all duration-200 flex items-center justify-center space-x-2`}
+                    onClick={() => handleSocialLogin("apple")}
+                    title="Login / Register via Apple not (yet) available"
+                    className={`w-full max-w-xs px-5 py-2 bg-${colorScheme}-800 text-neutral-300 rounded-md hover:bg-${colorScheme}-500 transition-all duration-200 flex items-center justify-center space-x-2 cursor-not-allowed`}
                 >
                     <span>via Apple</span>
                     <FaApple />
+                    <span>not (yet) available</span>
                 </button>
             </div>
         </div>

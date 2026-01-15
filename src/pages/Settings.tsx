@@ -112,11 +112,11 @@ export const Settings = () => {
                     { /* Join household section */}
                     <p className="text-neutral-300 text">Join a Household</p>
                     <input type="text" placeholder="Household ID" value={joinHouseholdId} onChange={(e) => setJoinHouseholdId(e.target.value)}
-                        className="w-full border-b-2 border-dotted border-slate-600 bg-transparent placeholder-slate-600 focus:outline-none text-neutral-300"
+                        className={`w-full border-b-2 border-dotted border-${colorScheme}-600 bg-transparent placeholder-${colorScheme}-600 focus:outline-none text-neutral-300`}
                     />
                     <p className="text-neutral-300 text-xs">Have someone from the Household you want to join share their Household ID with you (they will find it in their settings)</p>
                     <button onClick={joinExistingHousehold} title="Join Household"
-                        className="w-full px-5 py-2 bg-slate-600 text-neutral-300 rounded-md hover:bg-slate-500 transition-all duration-200 flex items-center justify-center space-x-2">
+                        className={`w-full px-5 py-2 bg-${colorScheme}-600 text-neutral-300 rounded-md hover:bg-${colorScheme}-500 transition-all duration-200 flex items-center justify-center space-x-2`}>
                         <span>Join Household</span>
                         <FaUsers />
                     </button>
@@ -130,10 +130,10 @@ export const Settings = () => {
                     { /* Create household section */}
                     <p className="text-neutral-300">Create a new Household</p>
                     <input type="text" placeholder="Houesehold Name" value={newHouseholdName} onChange={(e) => setNewHouseholdName(e.target.value)}
-                        className="w-full border-b-2 border-dotted border-slate-600 bg-transparent placeholder-slate-600 focus:outline-none text-neutral-300"
+                        className={`w-full border-b-2 border-dotted border-${colorScheme}-600 bg-transparent placeholder-${colorScheme}-600 focus:outline-none text-neutral-300`}
                     />
                     <button onClick={createNewHousehold} title="Create Household"
-                        className="w-full px-5 py-2 bg-slate-600 text-neutral-300 rounded-md hover:bg-slate-500 transition-all duration-200 flex items-center justify-center space-x-2">
+                        className={`w-full px-5 py-2 bg-${colorScheme}-600 text-neutral-300 rounded-md hover:bg-${colorScheme}-500 transition-all duration-200 flex items-center justify-center space-x-2`}>
                         <span>Create Household</span>
                         <FaHouseChimneyMedical />
                     </button>
