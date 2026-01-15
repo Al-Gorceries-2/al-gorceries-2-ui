@@ -142,7 +142,7 @@ export const Settings = () => {
                 { /* Color section */}
                 <div className={clsx("w-full max-w-md rounded-md border-2 border-dotted border-neutral-600 px-4 py-4 transition-all duration-200", { "hidden": loading || !household })}>
                     <p className="text-neutral-300">Pick a color scheme for Al-Gorceries</p>
-                    <p className="text-neutral-300 text-xs mt-2">Red and green are reserved by the application to indicate behaviour and to hint to expectations</p>
+                    <p className="text-neutral-300 text-xs mt-2">Red and green are reserved by the application to indicate behaviour and to hint to what the user can expect from an action</p>
 
                     <div className="w-full flex flex-wrap justify-center gap-4 mt-4">
                         {
