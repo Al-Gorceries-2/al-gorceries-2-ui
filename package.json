@@ -1,7 +1,7 @@
 {
     "name": "al-gorceries-2-ui",
     "private": false,
-    "version": "0.1.0",
+    "version": "0.1.1",
     "type": "module",
     "scripts": {
         "dev": "VITE_AL_GORCERIES_2_API_URL=http://localhost:8080 vite --host",
@@ -26,6 +26,7 @@
         "@types/react-router-dom": "^5.3.3",
         "@vitejs/plugin-react": "^5.0.4",
         "babel-plugin-react-compiler": "^19.1.0-rc.3",
+        "baseline-browser-mapping": "^2.9.15",
         "eslint": "^9.36.0",
         "eslint-plugin-react-hooks": "^5.2.0",
         "eslint-plugin-react-refresh": "^0.4.22",
