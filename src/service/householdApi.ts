@@ -1,7 +1,7 @@
 import type { Household } from "../data/household";
 import type { RecipeCreateDto, RecipeViewDto } from "../data/recipe";
 import type { RecipeListCreateDto, RecipeListPatchDto, RecipeListViewDto } from "../data/recipeList";
-import { DELETE, GET, POST } from "./api";
+import { DELETE, GET, PATCH, POST } from "./api";
 
 export const createHousehold = (name: string): Promise<Household> => POST<Household>("/households", { name });
 export const getHousehold = (householdId: string): Promise<Household> => GET<Household>(`/households/${householdId}`);
@@ -21,4 +21,4 @@ export const createRecipeListForHousehold = (householdId: string, recipeList: Re
 export const getRecipeListsForHousehold = (householdId: string): Promise<RecipeListViewDto[]> =>
     GET<RecipeListViewDto[]>(`/households/${householdId}/recipeLists`);
 export const patchRecipeListForHousehold = (householdId: string, recipeListId: string, recipeList: RecipeListPatchDto) =>
-    POST<RecipeListViewDto>(`/households/${householdId}/recipeLists/${recipeListId}`, recipeList);
+    PATCH<RecipeListViewDto>(`/households/${householdId}/recipeLists/${recipeListId}`, recipeList);

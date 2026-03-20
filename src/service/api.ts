@@ -21,6 +21,24 @@ export async function POST<T>(url: string, body?: unknown): Promise<T> {
         headers: {
             "Content-Type": "application/json",
         },
+        body: body ? JSON.stringify(body) : null,
+    });
+
+    if (!res.ok) {
+        throw new Error(`POST ${url} failed: ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    return data as T;
+}
+
+export async function PATCH<T>(url: string, body: unknown): Promise<T> {
+    const res = await fetch(BASE_URL + url, {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        },
         body: JSON.stringify(body),
     });
 
